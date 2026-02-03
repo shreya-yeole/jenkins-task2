@@ -21,11 +21,10 @@ pipeline {
         }
     }
 	post {
-        success {
-            echo "✅ Build, push, and deploy completed successfully!"
-        }
-        failure {
-            echo "Pipeline failed. Check logs."
-        }
-    }
+    always {
+        emailext(
+            body: "Commit triggered this build. Check console output.",
+            to: "yeoleshreya08@gmail.com")
+		}
+	}
 }
