@@ -22,11 +22,8 @@ pipeline {
     }
 	post {
     always {
-        emailext(
-			subject: "Build Notification: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-            body: "Commit triggered this build. Check console output.",
-            to: "yeoleshreya08@gmail.com"
-		)
+        	mail bcc: '', body: 'The commit from the github for task2 has been triggered.', cc: '', from: '', replyTo: '', subject: 'Commit from github TRiggered', to: 'Yeoleshreya08@gmail.com'
+
 		}
 	}
 }
